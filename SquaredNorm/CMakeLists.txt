@@ -1,0 +1,9 @@
+cmake_minimum_required(VERSION 2.6)
+
+PROJECT(SquaredNorm)
+
+FIND_PACKAGE(ITK REQUIRED ITKCommon)
+INCLUDE(${ITK_USE_FILE})
+
+ADD_EXECUTABLE(SquaredNorm SquaredNorm.cpp)
+TARGET_LINK_LIBRARIES(SquaredNorm ${ITK_LIBRARIES})
