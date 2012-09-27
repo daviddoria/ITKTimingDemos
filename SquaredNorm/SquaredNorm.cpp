@@ -1,3 +1,10 @@
+/** Timings:
+ * -O3 and -03 -msse2 seem to be the same:
+ * Built in time: 3.049
+ * Custom time: 2.00261
+ *
+ */
+
 #include "itkCovariantVector.h"
 #include "itkImage.h"
 #include "itkNumericTraits.h"
