@@ -1,10 +1,9 @@
 /**
- * Demo: Iterate over an image and do something with GetIndex() at each pixel.
- *       Do this with a ImageRegionConstIteratorWithIndex and a
- *       ImageRegionConstIterator to compare.
+ * Demo: Iterate over an image and do something with Get() at each pixel.
+ *       Compare this to calling GetPixel() on a vector of known indices.
  *
  * Conclusion:
- * ImageRegionConstIteratorWithIndex is about 3x faster than ImageRegionConstIterator if you need to use GetIndex() at each pixel!
+ * Using the iterator is about 3-4x faster.
  */
 
 // ITK
@@ -74,8 +73,8 @@ int main(int, char* [] )
   unsigned int total = 0; // To make sure the loop isn't optimized away
   for(unsigned int i = 0; i < numberOfIterations; ++i)
   {
-    total += Iterator(image.GetPointer()); // 1.4s
-//    total += GetPixel(image.GetPointer(), indices); // 5.9s
+//    total += Iterator(image.GetPointer()); // 1.4s
+    total += GetPixel(image.GetPointer(), indices); // 5.9s
   }
 
   std::cout << "total " << total << std::endl; // To make sure the loop isn't optimized away
